@@ -19,7 +19,7 @@ the power set. Not only this, setting up the dictionary file takes O(log n)
 and searching for each word takes O(log n). The run time in total ends up
 being:
 
-generating strings +setting up dictionary + searching dictionary for strings
+generating strings + setting up dictionary + searching dictionary for strings:
      (2^n)!        +       log(k)         +          log( (2^n)! )
 
 Ultimately, this program sucks. It does, however, help me cheat at board
