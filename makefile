@@ -11,3 +11,4 @@ wordhelper_trie: wordhelper_trie.cpp
 clean: 
 	rm wordhelper
 	rm wordhelper_trie
+	rm *.o
