@@ -1,5 +1,5 @@
 /* AUTHOR: Frankie Betancourt
- * DATE: 1/6/18
+ * DATE: 1/6/18, 8/7/18
  * DESCRIPTION: This program takes in a list of letters and trys to find
  * what words you can spell with them. It gets pretty slow at around 9
  * letters.
@@ -14,18 +14,19 @@
 #include <algorithm>
 using namespace std;
 
-class WordHelper{
+class WordHelper {
+  set <string> possibleWords; 
+  set <string> letterSets; 
 	public:
-		vector <char> letters; 
-		set <string> possibleWords; 
-		set <string> letterSets; 
-		void powerSetEnum(); 
-		void permuteWords(); 
-		void checkDict(); 
+  vector <char> letters; 
+  void powerSetEnum(); 
+  void permuteWords(); 
+  void checkDict(); 
 };
 
 /* Sort completed strings by length */
 struct stringLen {
+  public:
   bool operator() (const string lhs_str, const string rhs_str) {
     const size_t lhs_len = lhs_str.length(); 
     const size_t rhs_len = rhs_str.length(); 

@@ -1,9 +1,24 @@
 Wordhelper takes a list of letters on the command line and generates a
 list of words you can spell. 
 
-Basic Function
-==============
-It basically works by: 
+Revisiting
+==========
+I was intensely dissatisfied with how slow my original wordhelper was, so I 
+decided to make a new version using a somewhat faster and prettier approach. 
+What I did was to use a data structure called a 
+[trie](https://en.wikipedia.org/wiki/Trie). It's pretty neat. 
+
+Trie Solution
+=============
+How it works is as follows: 
+1) I insert all of the words found in 'words.txt' into the trie
+2) Put the set of letters into a multiset
+3) Remove a letter from the multiset, and recursively traverse the trie
+
+Original Solution
+=================
+Disclaimer: This is terrible.
+It basically worked by: 
 1) inserting all of the letters into a vector of chars
 2) generating a power set enumeration of that vector
 3) generating all of the combinations of all the power sets, 
