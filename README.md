@@ -32,3 +32,7 @@ It basically worked by:
    and then putting all of those combinations into a new vector
    of strings
 4) check all of the strings that were permuted against the dictionary
+
+Feedback
+========
+As usual, please roast my code! I love feedback, and I don't care if you're nice about it or not. 
