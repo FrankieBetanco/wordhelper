@@ -1,14 +1,14 @@
-all: wordhelper wordhelper_trie
+default: wordhelper_trie
 
+CFLAGS = -std=c++11 -O2
 
-wordhelper: wordhelper.cpp
-	g++ -std=c++11 wordhelper.cpp -o wordhelper
+wordhelper: 
+	$(CXX) $(FLAGS) -c wordhelper.cpp
+	$(CXX) wordhelper.o wordhelper-garbage
 
 wordhelper_trie: wordhelper_trie.cpp
-	g++ -std=c++11 -c wordhelper_trie.cpp
-	g++ -std=c++11 wordhelper_trie.o -o wordhelper_trie
+	$(CXX) $(CFLAGS) -c wordhelper_trie.cpp
+	$(CXX) wordhelper_trie.o -o wordhelper
 
 clean: 
-	rm wordhelper
-	rm wordhelper_trie
-	rm *.o
+	rm -f *.o wordhelper wordhelper-garbage

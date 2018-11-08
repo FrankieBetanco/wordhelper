@@ -1,5 +1,5 @@
 Wordhelper takes a list of letters on the command line and generates a
-list of words you can spell. 
+list of words you can spell. I built it to help me cheat at board games. 
 
 Revisiting
 ==========
@@ -10,13 +10,20 @@ What I did was to use a data structure called a
 
 Trie Solution
 =============
+This is implemented in wordhelper_trie.cpp
+
 How it works is as follows: 
 1) I insert all of the words found in 'words.txt' into the trie
 2) Put the set of letters into a multiset
-3) Remove a letter from the multiset, and recursively traverse the trie
+3) Do a depth first search of the tree, noting when a node that is the end of
+the word is found. 
+-At each recursive DFS call, remove the letter of the current node from the 
+set, and call DFS on the set without the letter. 
 
 Original Solution
 =================
+This is implemented in wordhelper.cpp
+
 Disclaimer: This is terrible.
 It basically worked by: 
 1) inserting all of the letters into a vector of chars
@@ -25,18 +32,3 @@ It basically worked by:
    and then putting all of those combinations into a new vector
    of strings
 4) check all of the strings that were permuted against the dictionary
-
-Run time
-========
-It's ludicrously slow. O(n!) slow, in fact. This is due in large part
-to the fact that there are n! combinations for each of the sets within 
-the power set. Not only this, setting up the dictionary file takes O(log n)
-and searching for each word takes O(log n). The run time in total ends up
-being:
-
-generating strings + setting up dictionary + searching dictionary for strings:
-     O(n!)        +       O(log(k))         +          O(n!log(k))
-
-Ultimately, this program sucks. It does, however, help me cheat at board
-games, which is what I designed it to do. I'll revisit this at some
-point in the future to figure out a better way to do this.
